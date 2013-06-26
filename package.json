@@ -1,0 +1,22 @@
+{
+  "name": "Brains-with-Friends",
+  "description": "A top-down shooter mmorpg in SocketIO and Box2d.",
+  "version": "0.0.1",
+  "maintainers": [
+    {
+      "name": "Jackson Gariety",
+      "email": "personal@jacksongariety.com",
+      "web": "http://jacksongariety.com"
+    }
+  ],
+  "dependencies": {
+    "express": "~3.2.6",
+    "riak-js": "~0.10.2",
+    "socket.io": "~0.9.14"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-coffeeify": "~0.1.3"
+  }
+}
