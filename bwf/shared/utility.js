@@ -1,3 +1,5 @@
+goog.provide('Class')
+
 var Class = (function () {
   function Class(definition) {
     function Class() {}

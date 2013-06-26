@@ -3,8 +3,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       scripts: {
-        files: "./bwf/client/coffee/**/*.coffee",
-        tasks: ["coffee"],
+        files: "./bwf/client/**/*.*",
+        tasks: ["deps"],
         options: {
           livereload: true
         }
@@ -34,6 +34,17 @@ module.exports = function(grunt) {
     grunt.util.spawn({
       cmd: 'pkill',
       args: ['node', 'livereload'],
+      opts: {
+        stdio: 'inherit'
+      }
+    });
+  });
+  
+  // Update dependencies
+  grunt.registerTask('deps', 'Updates Google Closure\'s deps.js file.', function() {
+    grunt.util.spawn({
+      cmd: './bin/lime.py',
+      args: ['update'],
       opts: {
         stdio: 'inherit'
       }
