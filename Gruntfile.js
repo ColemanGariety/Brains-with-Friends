@@ -3,8 +3,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       scripts: {
-        files: ["./bwf/client/**/*.*", "./bwf/shared/**/*.*"],
-        tasks: ["deps"],
+        files: ['./bwf/client/**/*.*', './bwf/shared/**/*.*'],
+        tasks: ['update'],
         options: {
           livereload: true
         }
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   
   // Default task
-  grunt.registerTask('default', ['server', 'deps', 'watch']);
+  grunt.registerTask('default', ['server', 'watch']);
   
   // Start the server
   grunt.registerTask('server', 'Starts the server.', function() {
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
   });
   
   // Update the dependencies
-  grunt.registerTask('deps', 'Updates Google Closure\'s deps.js file.', function() {
+  grunt.registerTask('update', 'Updates Google Closure\'s deps.js file.', function() {
     grunt.util.spawn({
       cmd: './bin/lime.py',
       args: ['update'],

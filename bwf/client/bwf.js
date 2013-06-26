@@ -6,15 +6,8 @@ goog.require('lime.Layer');
 
 // Is called from index.html after Google dependencies load
 bwf.start = function() {
-  // DELETE ME
-  var Example = new Class({
-    constructor: function () {
-      alert("You constructed an example with Google Closure! Fuck yeah!");
-    }
-  });
-  
-  var Example1 = new Example;
-  // END DELETE ME
+  bwf.director = new lime.Director(document.body, window.innerWidth, window.innerHeight);
+  bwf.scene = new lime.Scene();
 };
 
 goog.exportSymbol("bwf.start", bwf.start);
