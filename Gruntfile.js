@@ -16,7 +16,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   
   // Default task
-  grunt.registerTask('default', ['server', 'watch']);
+  grunt.registerTask('default', ['server', 'deps', 'watch']);
   
   // Start the server
   grunt.registerTask('server', 'Starts the server.', function() {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
     });
   });
   
-  // Update dependencies
+  // Update the dependencies
   grunt.registerTask('deps', 'Updates Google Closure\'s deps.js file.', function() {
     grunt.util.spawn({
       cmd: './bin/lime.py',

@@ -6,14 +6,14 @@ goog.require('lime.Layer');
 
 // Is called from index.html after Google dependencies load
 bwf.start = function() {
-  return lime.Director;
-  
   // DELETE ME
-  var ExampleClass = new Class({
+  var Example = new Class({
     constructor: function () {
       alert("You constructed an example with Google Closure! Fuck yeah!");
     }
   });
+  
+  var Example1 = new Example;
   // END DELETE ME
 };
 
