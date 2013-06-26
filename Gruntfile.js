@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       scripts: {
-        files: "./bwf/client/**/*.*",
+        files: ["./bwf/client/**/*.*", "./bwf/shared/**/*.*"],
         tasks: ["deps"],
         options: {
           livereload: true
