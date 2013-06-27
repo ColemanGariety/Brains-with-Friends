@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict/>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>2</integer>
+            <key>realTextureFileName</key>
+            <string>Arms crate.png</string>
+            <key>size</key>
+            <string>{1,1}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:d24852f647c932c23b6101bf726b3f00$</string>
+            <key>textureFileName</key>
+            <string>Arms crate.png</string>
+        </dict>
+    </dict>
+</plist>

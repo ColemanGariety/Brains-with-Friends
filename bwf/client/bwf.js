@@ -1,5 +1,6 @@
 goog.provide('bwf');
-goog.require('Class')
+goog.require('Class');
+goog.require('Dll');
 goog.require('lime.Director');
 goog.require('lime.Scene');
 goog.require('lime.Layer');
