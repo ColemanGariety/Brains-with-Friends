@@ -56,9 +56,8 @@ module.exports = function(grunt) {
     grunt.util.spawn({
       cmd: 'git',
       args: ['submodule', 'update', '--init'],
-      opts: {
-        stdio: 'inherit'
-      }
     });
+
+    grunt.task.run('update')
   });
 };
