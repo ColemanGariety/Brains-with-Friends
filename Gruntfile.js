@@ -50,4 +50,15 @@ module.exports = function(grunt) {
       }
     });
   });
+
+  // Update submodules orinitialize them
+  grunt.registerTask('submodules', 'Updates or intializes the submodules.', function() {
+    grunt.util.spawn({
+      cmd: 'git',
+      args: ['submodule', 'update', '--init'],
+      opts: {
+        stdio: 'inherit'
+      }
+    });
+  });
 };

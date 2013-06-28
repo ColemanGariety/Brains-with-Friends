@@ -1,4 +1,4 @@
-goog.provide('bwf.Input');
+goog.provide('bwf.input');
 
 // Mousedown
 goog.events.listen(document, goog.events.EventType.MOUSEDOWN, function(event) {

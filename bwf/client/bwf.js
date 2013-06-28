@@ -4,7 +4,7 @@ goog.require('Dll');
 goog.require('lime.Director');
 goog.require('lime.Scene');
 goog.require('lime.Layer');
-goog.require('bwf.Input');
+goog.require('bwf.input');
 
 // Is called from index.html after Google dependencies load
 bwf.start = function() {
