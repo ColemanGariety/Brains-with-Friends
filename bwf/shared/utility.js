@@ -1,5 +1,4 @@
-goog.provide('Class'); // Classes
-goog.provide('Dll'); // Doubly-linked-lists, a high-performance array alternative
+goog.provide('shared.utilities');
 
 // Classes
 var Class = (function () {
@@ -79,7 +78,7 @@ var Dll = new Class({
   
   // constructor: Dll, // Restores the constructor, but breaks our class implementation
   
-  add: function (data){
+  add: function (data) {
         var node = { 
                 data: data, 
                 next: null,
@@ -97,7 +96,7 @@ var Dll = new Class({
     
     },
     
-    get: function(index){
+    get: function(index) {
         if (index > -1 && index < this._length){
             var current = this._head,
                 i = 0;
@@ -110,7 +109,7 @@ var Dll = new Class({
         }
     },
     
-    remove: function(index){
+    remove: function(index) {
         if (index > -1 && index < this._length){
             var current = this._head,
                 i = 0;
@@ -141,11 +140,11 @@ var Dll = new Class({
     
     },
     
-    size: function(){
+    size: function() {
         return this._length;
     },
     
-    toArray: function(){
+    toArray: function() {
         var result = [],
             current = this._head;
         
@@ -157,7 +156,7 @@ var Dll = new Class({
         return result;
     },
     
-    toString: function(){
+    toString: function() {
         return this.toArray().toString();
     }
 });

@@ -1,4 +1,4 @@
-goog.provide('bwf.input');
+goog.provide('client.input');
 
 // Mousedown
 goog.events.listen(document, goog.events.EventType.MOUSEDOWN, function(event) {
@@ -18,8 +18,8 @@ goog.events.listen(document, goog.events.EventType.DRAG, function(event) {
 // Mouse-move
 goog.events.listen(document, goog.events.EventType.MOUSEMOVE, function(event) {
   // Update the game's knowledge of the mouse cursor
-  bwf.mouseX = event.clientX
-  bwf.mouseY = event.clientY
+  client.mouseX = event.clientX
+  client.mouseY = event.clientY
 });
 
 // Right-click

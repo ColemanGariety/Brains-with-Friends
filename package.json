@@ -13,8 +13,8 @@
     "express": "~3.2.6",
     "socket.io": "~0.9.14",
     "couchbase": "0.0.12",
-    "passport-local": "~0.1.6",
-    "nclosure": "~0.4.3"
+    "nclosure": "~0.4.3",
+    "hbs": "~2.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

@@ -2,8 +2,8 @@ module.exports = function(grunt) {
   // Configure plugins
   grunt.initConfig({
     watch: {
-      scripts: {
-        files: ['./bwf/client/**/*.*', './bwf/shared/**/*.*'],
+      update: {
+        files: ['./bwf/**/*.*'],
         tasks: ['update'],
         options: {
           livereload: true
