@@ -18,8 +18,10 @@ goog.events.listen(document, goog.events.EventType.DRAG, function(event) {
 // Mouse-move
 goog.events.listen(document, goog.events.EventType.MOUSEMOVE, function(event) {
   // Update the game's knowledge of the mouse cursor
-  client.mouseX = event.clientX
-  client.mouseY = event.clientY
+  client.mouse = {
+    x: event.clientX,
+    y: event.clientY
+  }
 });
 
 // Right-click
