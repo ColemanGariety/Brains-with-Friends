@@ -1,6 +1,7 @@
 var express = require('express'),
     http = require('http'),
-    app = express();
+    app = express(),
+    nclosure = require('nclosure').nclosure();
 
 app.use(express.compress());
 

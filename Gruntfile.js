@@ -52,10 +52,18 @@ module.exports = function(grunt) {
   });
 
   // Update submodules orinitialize them
-  grunt.registerTask('submodules', 'Updates or intializes the submodules.', function() {
+  grunt.registerTask('install', 'Updates or intializes the submodules then install npm dependencies.', function() {
     grunt.util.spawn({
       cmd: 'git',
-      args: ['submodule', 'update', '--init'],
+      args: ['submodule', 'update', '--init']
+    });
+
+    grunt.util.spawn({
+      cmd: 'npm',
+      args: ['install'],
+      opts: {
+        stdio: 'inherit'
+      }
     });
 
     grunt.task.run('update')

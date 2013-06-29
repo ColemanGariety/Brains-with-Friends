@@ -1,6 +1,6 @@
-#Brains-with-Friends
+# Brains-with-Friends
 
-A top-down shooter mmorpg with SocketIO and Box2d.
+A fast-paced dungeon crawler. Open source.
 
 ![Brains with Friends](https://raw.github.com/JacksonGariety/Brains-with-Friends/master/preview.jpg)
 
@@ -21,7 +21,9 @@ The [builder design pattern](http://coffeescriptcookbook.com/chapters/design_pat
 ### Server
 - [Node](https://github.com/joyent/node)
 - [Express](https://github.com/visionmedia/express)
-- [Riak-js](https://github.com/mostlyserious/riak-js)
+- [Couchbase](https://github.com/couchbase/couchnode)
+- [Passport](https://github.com/jaredhanson/passport)
+- [nClosure](https://github.com/gatapia/nclosure)
 
 ### Client
 - [Box2D](http://code.google.com/p/box2d/)

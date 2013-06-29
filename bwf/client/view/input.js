@@ -4,10 +4,8 @@ goog.provide('bwf.input');
 goog.events.listen(document, goog.events.EventType.MOUSEDOWN, function(event) {
   switch (event.event_.which) {
     case 1: // Left-click
-      alert('Left-click');
       break;
     case 3: // Right-click
-      alert('Right-click');
       break;
   }
 });
