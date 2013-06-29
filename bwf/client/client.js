@@ -4,6 +4,7 @@ goog.provide('client');
 // Modules
 goog.require('lime.Director');
 goog.require('shared.utilities');
+goog.require('client.utilities');
 goog.require('client.input');
 
 // Fire when dependencies are loaded

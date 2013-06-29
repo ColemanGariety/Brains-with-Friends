@@ -2,13 +2,15 @@
 var express = require('express'),
     http = require('http'),
     app = express(),
-    nclosure = require('nclosure').nclosure();
+    nclosure = require('nclosure').nclosure(),
+    routes = require('./routes.js');
 
 // Provide
 goog.provide('server');
 
 // Modules
 goog.require('shared.utilities');
+goog.require('server.utilities');
 
 // Express middleware
 app.use(express.compress()); // Gzip data for speed
@@ -22,20 +24,8 @@ app.set('views', __dirname + '/../client')
 app.set('view engine', 'html');
 app.engine('html', require('hbs').__express);
 
-// Dynamic routes
-app.get('/', function(req, res) {
-  console.log("User '" + req.session.user_id + "' requested.");
-  res.render('index', { user_id: req.session.user_id });
-});
-
-app.get('/login', function(req, res) {
-  req.session.user_id = 30
-  res.redirect('/')
-});
-
-// Static routes
-app.use(express.static(__dirname + "/../client")); // The public files
-app.use(express.static(__dirname + "/../../")); // Closure, lime and Box2D dependency
+// Routing
+routes(app, express);
 
 // Start the server
 http.createServer(app).listen(1337);
