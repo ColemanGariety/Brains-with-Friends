@@ -1,35 +1,47 @@
 goog.provide('client.input');
 
 // Mousedown
-goog.events.listen(document, goog.events.EventType.MOUSEDOWN, function(event) {
+client.input.mousedown = function(event) {
   switch (event.event_.which) {
     case 1: // Left-click
       break;
     case 3: // Right-click
       break;
   }
-});
+  
+  return true;
+}
 
 // Drag
-goog.events.listen(document, goog.events.EventType.DRAG, function(event) {
+client.input.drag = function(event) {
   // Will be needed for inventory item re-arranging
-});
+  return true;
+}
 
 // Mouse-move
-goog.events.listen(document, goog.events.EventType.MOUSEMOVE, function(event) {
+client.input.mousemove = function(event) {
   // Update the game's knowledge of the mouse cursor
-  client.mouse = {
+  return client.mouse = {
     x: event.clientX,
     y: event.clientY
   }
-});
+}
 
 // Right-click
-goog.events.listen(document, goog.events.EventType.CONTEXTMENU, function(event) {
+client.input.contextmenu = function(event) {
   event.preventDefault(); // Kill the context menu
-});
+  return false;
+}
 
 // Text selection
-goog.events.listen(document, goog.events.EventType.SELECTSTART, function(event) {
+client.input.selectstart = function(event) {
   event.preventDefault(); // Kill the i-beam cursor
-});
+  return false;
+}
+
+
+goog.events.listen(document, goog.events.EventType.MOUSEDOWN, client.input.mousedown);
+goog.events.listen(document, goog.events.EventType.DRAG, client.input.drag);
+goog.events.listen(document, goog.events.EventType.MOUSEMOVE, client.input.mousemove);
+goog.events.listen(document, goog.events.EventType.CONTEXTMENU, client.input.contextmenu);
+goog.events.listen(document, goog.events.EventType.SELECTSTART, client.input.selectstart);

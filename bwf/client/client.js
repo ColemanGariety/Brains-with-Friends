@@ -3,22 +3,46 @@ goog.provide('client');
 
 // Modules
 goog.require('lime.Director');
-goog.require('shared.utilities');
-goog.require('client.utilities');
-goog.require('client.input');
+goog.require('utilities.shared');
+goog.require('utilities.client');
 
 // Singleton class for the client
-var client = (function() {
-  
+var Client = (function() {
+  var instance; // Private instance
+
+  function Client() { // Constructor
+    // Throw error if constructed multiple times
+    if (typeof instance != "undefined") {
+      throw new Error("Client may only be instantiated once.");
+    }
+    
+    goog.requireAsync('client.input');
+    
+    this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight);
+    
+    // Keep a closured reference to the instance
+    instance = this;
+  }
+
   // Public methods
-  var _this = {
-    construct: function() {
-      delete _this.construct;
-      _this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight); // Setup the rendering engine
+  Client.prototype = {
+    
+  }
+
+  Client.getSingletonInstance = function() {
+    if (typeof instance == "undefined") {
+      return new this();
+    }
+    else {
+      return instance;
     }
   }
-  return _this;
+
+  // Return the constructor
+  return Client;
 })();
 
-// Fire when dependencies are loaded
-window.onload = client.construct;
+// Initialize the client when dependencies are loaded
+window.onload = function() {
+   client = Client.getSingletonInstance();
+};

@@ -1,4 +1,4 @@
-goog.provide('shared.utilities');
+goog.provide('utilities.shared');
 
 // Classes
 var Class = (function () {

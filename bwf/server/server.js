@@ -9,8 +9,8 @@ var express = require('express'),
 goog.provide('server');
 
 // Modules
-goog.require('shared.utilities');
-goog.require('server.utilities');
+goog.require('utilities.shared');
+goog.require('utilities.server');
 
 // Express middleware
 app.use(express.compress()); // Gzip data for speed

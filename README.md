@@ -22,7 +22,6 @@ The [builder design pattern](http://coffeescriptcookbook.com/chapters/design_pat
 - [Node](https://github.com/joyent/node)
 - [Express](https://github.com/visionmedia/express)
 - [Couchbase](https://github.com/couchbase/couchnode)
-- [Passport](https://github.com/jaredhanson/passport)
 - [nClosure](https://github.com/gatapia/nclosure)
 
 ### Client

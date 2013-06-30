@@ -1,4 +1,14 @@
-goog.provide('client.utilities');
+goog.provide('utilities.client');
+
+// Custom google closure asynchronous require
+goog.requireAsync = function(name) {
+  var src = goog.getPathFromDeps_(name),
+      script = document.createElement('script');
+  
+  script.type = 'text/javascript';
+  script.src = src;
+  document.head.appendChild(script);
+};
 
 /*!
   * @preserve Qwery - A Blazing Fast query selector engine

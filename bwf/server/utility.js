@@ -1,1 +1,1 @@
-goog.provide('server.utilities');
+goog.provide('utilities.server');
