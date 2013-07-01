@@ -3,7 +3,7 @@ var express = require('express'),
     http = require('http'),
     server = express(),
     nclosure = require('nclosure').nclosure(),
-    couchbase = require("couchbase"),
+    // couchbase = require("couchbase"),
     config = require('./config.json');
 
 // Provide
@@ -48,13 +48,13 @@ server.use(express.static(__dirname + "/../client")); // The public files
 server.use(express.static(__dirname + "/../../")); // Closure, lime and Box2D dependency
 
 // Start the server
-couchbase.connect({
-    "user" : config.couchbase.username,
-    "password" : config.couchbase.password,
-    "hosts" : [ config.couchbase.host ],
-    "bucket" : config.couchbase.bucket
-}, function(err, bucket) {
-  if (err) throw err;
+// couchbase.connect({
+//     "user" : config.couchbase.username,
+//     "password" : config.couchbase.password,
+//     "hosts" : [ config.couchbase.host ],
+//     "bucket" : config.couchbase.bucket
+// }, function(err, bucket) {
+//   if (err) throw err;
   
   http.createServer(server).listen(1337);
-});
+// });
