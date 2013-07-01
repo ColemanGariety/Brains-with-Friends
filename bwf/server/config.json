@@ -1,0 +1,9 @@
+{
+  "cookie_secret": "what even is unix",
+  "couchbase": {
+    "username": "jackson",
+    "password": "what even is unix",
+    "host": "localhost:8091",
+    "bucket": "bwf"
+  }
+}

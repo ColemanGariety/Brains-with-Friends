@@ -4,6 +4,13 @@ A fast-paced dungeon crawler. Open source.
 
 ![Brains with Friends](https://raw.github.com/JacksonGariety/Brains-with-Friends/master/preview.jpg)
 
+## Setup
+
+1. Run `grunt install` to grab the dependencies
+2. Install couchbase: http://www.couchbase.com/couchbase-server/overview
+3. Start the server with `grunt`
+4. Play the game at `localhost:1337`
+
 ## Patterns
 
 ### Memento
@@ -22,7 +29,7 @@ The [builder design pattern](http://coffeescriptcookbook.com/chapters/design_pat
 - [Node](https://github.com/joyent/node)
 - [Express](https://github.com/visionmedia/express)
 - [Couchbase](https://github.com/couchbase/couchnode)
-- [nClosure](https://github.com/gatapia/nclosure)
+- [nclosure](https://github.com/gatapia/nclosure)
 
 ### Client
 - [Box2D](http://code.google.com/p/box2d/)

@@ -11,17 +11,11 @@ var Client = (function() {
   var instance; // Private instance
 
   function Client() { // Constructor
-    // Throw error if constructed multiple times
-    if (typeof instance != "undefined") {
-      throw new Error("Client may only be instantiated once.");
-    }
-    
     goog.requireAsync('client.input');
     
-    this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight);
+    this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight); // Setup the rendering engine
     
-    // Keep a closured reference to the instance
-    instance = this;
+    instance = this; // Keep a closured reference to the instance
   }
 
   // Public methods
