@@ -6,6 +6,7 @@ goog.require('lime.Director');
 goog.require('lime.parser.TMX');  
 goog.require('utilities.shared');
 goog.require('utilities.client');
+goog.require('lime.Layer');
 
 // Singleton class for the client
 var Client = (function() {
@@ -13,14 +14,17 @@ var Client = (function() {
 
   function Client() { // Constructor
     goog.requireAsync('client.input');
+
+    this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight); // Setup the rendering engine
+    this.scene = new lime.Scene();
+    this.director.replaceScene(this.scene);
+
     goog.requireAsync('Map', function() {
       this.maps = {
         desert: new Map
       }
     });
 
-    this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight); // Setup the rendering engine
-    
     instance = this; // Keep a closured reference to the instance
   }
 
