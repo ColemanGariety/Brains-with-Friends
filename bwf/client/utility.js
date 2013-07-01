@@ -1,9 +1,9 @@
 goog.provide('utilities.client');
 
 // Custom google closure asynchronous require
-goog.requireAsync = function(name) {
+goog.requireAsync = function(name, callback) {
   var src = goog.getPathFromDeps_(name),
-      script = document.createElement('script');
+      script = document.createElement('script')
   
   script.type = 'text/javascript';
   script.src = src;
