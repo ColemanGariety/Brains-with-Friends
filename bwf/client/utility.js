@@ -3,10 +3,24 @@ goog.provide('utilities.client');
 // Custom google closure asynchronous require
 goog.requireAsync = function(name, callback) {
   var src = goog.getPathFromDeps_(name),
-      script = document.createElement('script')
+      script = document.createElement('script'),
+      loaded;
   
   script.type = 'text/javascript';
   script.src = src;
+  
+  // Callback
+  if (callback) {
+    script.onreadystatechange = script.onload = function() {
+      if (!loaded) {
+        callback();
+      }
+      
+      loaded = true;
+    };
+  }
+  
+  // Load dat shit.
   document.head.appendChild(script);
 };
 
