@@ -3,7 +3,6 @@ var express = require('express'),
     http = require('http'),
     server = express(),
     nclosure = require('nclosure').nclosure(),
-    routes = require('./routes.js'),
     couchbase = require("couchbase"),
     config = require('./config.json');
 
