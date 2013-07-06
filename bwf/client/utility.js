@@ -1,27 +1,25 @@
 goog.provide('utilities.client');
 
-// Custom google closure asynchronous require
-goog.requireAsync = function(name, callback) {
-  var src = goog.getPathFromDeps_(name),
-      script = document.createElement('script'),
-      loaded;
-  
-  script.type = 'text/javascript';
-  script.src = src;
-  
-  // Callback
-  if (callback) {
-    script.onreadystatechange = script.onload = function() {
-      if (!loaded) {
-        callback();
+goog.require('goog.net.XmlHttp');
+goog.require('goog.net.EventType');
+
+// Custom require function
+var require = function(name) {
+  if (document.readyState == 'complete') {
+    var xhr = goog.net.XmlHttp();
+    xhr.open('GET', goog.getPathFromDeps_(name), false);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.text = xhr.responseText;
+        document.head.appendChild(script);
       }
-      
-      loaded = true;
     };
+    xhr.send();
+  } else {
+    goog.require(name);
   }
-  
-  // Load dat shit.
-  document.head.appendChild(script);
 };
 
 /*!
