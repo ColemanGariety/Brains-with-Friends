@@ -22,7 +22,7 @@ module.exports = function(grunt) {
   grunt.registerTask('server', 'Starts the server.', function() {
     grunt.util.spawn({
       cmd: 'nodemon',
-      args: ['./bwf/server/server.js', '--watch ./bwf/server', '--watch ./bwf/shared'],
+      args: ['bwf/server/server.js', '--watch bwf/server', '--watch bwf/shared'],
       opts: {
         stdio: 'inherit'
       }
