@@ -2,7 +2,7 @@ goog.provide('Map'); //provides this file to client.js
 
 var Map = new Class({ // Defines map-rendering logic
   constructor: function () {
-    var tmx = new lime.parser.TMX('assets/display/maps/testmap.tmx'),
+    var tmx = new lime.parser.TMX('assets/display/maps/testmap2.tmx'),
         layer = new lime.Layer();
 
     Client.getInstance().scene.appendChild(layer);

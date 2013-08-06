@@ -8,6 +8,7 @@ goog.require('lime.Director');
 goog.require('lime.parser.TMX');
 goog.require('lime.Layer');
 
+
 // Singleton class for the client
 var Client = (function() {
   var instance; // Private instance
@@ -20,16 +21,28 @@ var Client = (function() {
     this.scene = new lime.Scene();
     this.director.replaceScene(this.scene);
     
+    /*
     require('Map');
     this.maps = {
       desert: new Map
     }
+  */
+    goog.require('actor.shared');
+    this.actor = {
+
+    }
+    
   }
 
   // Public methods
   Client.prototype = {
     
   }
+
+  // Initialize the client when dependencies are loaded
+window.onload = function() {
+   client = Client.getInstance();
+};
 
   Client.getInstance = function() {
     if (typeof instance == "undefined") {
@@ -44,7 +57,3 @@ var Client = (function() {
   return Client;
 })();
 
-// Initialize the client when dependencies are loaded
-window.onload = function() {
-   client = Client.getInstance();
-};
