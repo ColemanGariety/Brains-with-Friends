@@ -13,7 +13,7 @@ var Client = (function() {
   var instance; // Private instance
 
   function Client() { // Constructor
-    instance = this; // Keep a closured reference to the instance
+    client = instance = this; // Keep a closured reference to the instance
     
     require('Input');
     this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight); // Setup the rendering engine
@@ -24,11 +24,6 @@ var Client = (function() {
     this.maps = {
       desert: new Map
     }
-  }
-
-  // Public methods
-  Client.prototype = {
-    
   }
 
   Client.getInstance = function() {
