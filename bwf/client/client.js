@@ -21,18 +21,10 @@ var Client = (function() {
     this.scene = new lime.Scene();
     this.director.replaceScene(this.scene);
     
-    /*
-      require('Map');
-      this.maps = {
-        desert: new Map
-      }
-    */
-    
-    goog.require('actor.shared');
-    this.actor = {
-
+    require('Map');
+    this.maps = {
+      desert: new Map
     }
-    
   }
   // Public methods
   Client.prototype = {
