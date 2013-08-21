@@ -1,6 +1,6 @@
 [submodule "closure"]
 	path = closure
-	url = git://github.com/JacksonGariety/bwf-closure.git
+	url = https://github.com/JacksonGariety/bwf-closure.git
 [submodule "box2d"]
 	path = box2d
-	url = git://github.com/JacksonGariety/bwf-box2d.git
+	url = https://github.com/JacksonGariety/bwf-box2d.git
