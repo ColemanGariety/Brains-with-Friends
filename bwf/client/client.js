@@ -25,6 +25,11 @@ var Client = (function() {
     this.maps = {
       desert: new Map
     }
+
+    require('Actor');
+    this.actors = {
+      puppet: new Actor
+    }
   }
   // Public methods
   Client.prototype = {

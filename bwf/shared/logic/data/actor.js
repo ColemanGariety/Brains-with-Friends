@@ -1,4 +1,4 @@
-goog.provide('actor.shared');
+goog.provide('Actor');
 goog.require('Input');
 
 var Actor = new Class({
@@ -13,9 +13,10 @@ var target = function() {
 var legs = new lime.Sprite().setSize(40,36).setFill('/legs/legAni2.png').setPosition(xa, ya); 
 layer.appendChild(legs);
 //torso
+/*
 var legs = new lime.Sprite().setSize(40,36).setFill('/Torso/Torso.png').setPosition(xa, ya).RotateTo(target);
 layer.appendChild(legs);
   }
 }
 });
-
+*/
