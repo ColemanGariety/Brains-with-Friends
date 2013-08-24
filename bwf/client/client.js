@@ -21,12 +21,10 @@ var Client = function() {
     this.scene = new lime.Scene();
     this.director.replaceScene(this.scene);
     
-/*
     require('Map');
     this.maps = {
       desert: new Map
     }
-*/
 
     require('Actor');
     this.actors = {

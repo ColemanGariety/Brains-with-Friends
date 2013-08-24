@@ -18,16 +18,16 @@ goog.events.listen(document, goog.events.EventType.MOUSEDOWN, Input.mousedown);
 Input.keydown = function(event) {
   var puppet = client.actors.puppet
   switch (event.event_.which) {
-    case 83:
+    case 68:
       puppet.x += 10
       break
-    case 87:
+    case 83:
       puppet.y += 10
       break
-    case 68:
+    case 65:
       puppet.x -= 10
       break
-    case 65:
+    case 87:
       puppet.y -= 10
       break
   }
