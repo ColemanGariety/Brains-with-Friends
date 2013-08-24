@@ -10,7 +10,7 @@ goog.require('lime.Layer');
 
 
 // Singleton class for the client
-var Client = (function() {
+var Client = function() {
   var instance; // Private instance
 
   function Client() { // Constructor
@@ -48,7 +48,7 @@ var Client = (function() {
 
   // Return the constructor
   return Client;
-})();
+}()
 
 // Initialize the client when dependencies are loaded
 window.onload = function() {
