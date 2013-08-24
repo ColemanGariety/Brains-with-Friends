@@ -6,6 +6,7 @@ goog.require('goog.net.EventType');
 // Custom require function
 var require = function(name) {
   if (document.readyState == 'complete') {
+    console.log(name)
     var xhr = goog.net.XmlHttp();
     xhr.open('GET', goog.getPathFromDeps_(name), false);
     xhr.onreadystatechange = function() {
