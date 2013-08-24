@@ -1,8 +1,6 @@
 goog.provide('Input');
 require('lime.animation.MoveBy');
 
-var move = new lime.animation.MoveBy(0, 10).enableOptimizations()
-
 // Mousedown
 Input.mousedown = function(event) {
   switch (event.event_.which) {
@@ -18,7 +16,23 @@ goog.events.listen(document, goog.events.EventType.MOUSEDOWN, Input.mousedown);
 
 //WASD
 Input.keydown = function(event) {
-  client.actors.puppet.legs.runAction(move)
+  var puppet = client.actors.puppet
+  switch (event.event_.which) {
+    case 83:
+      puppet.x += 10
+      break
+    case 87:
+      puppet.y += 10
+      break
+    case 68:
+      puppet.x -= 10
+      break
+    case 65:
+      puppet.y -= 10
+      break
+  }
+  
+  puppet.move()
 
   return true
 }

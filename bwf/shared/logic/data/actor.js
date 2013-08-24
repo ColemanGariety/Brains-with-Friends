@@ -3,13 +3,22 @@ goog.require('Input');
 
 var Actor = new Class({
   constructor: function() {
-    this.xa = 100
-    this.ya = 100
+    this.x = 100
+    this.y = 100
     this.layer = new lime.Layer()
-    this.legs = new lime.Sprite().setSize(40,36).setFill('/assets/display/actors/legs/foo.png').setPosition(this.xa, this.ya)
+    this.legs = new lime.Sprite()
+    
+    this.legs.setSize(80,72).setFill('/assets/display/actors/legs/foo.png')
     
     // Add legs to screen
     client.scene.appendChild(this.layer);
     this.layer.appendChild(this.legs);
+    
+    // Move it
+    this.move()
+  },
+  
+  move: function() {
+    this.legs.setPosition(this.x, this.y)
   }
 });
