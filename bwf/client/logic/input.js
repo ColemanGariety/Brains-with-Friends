@@ -13,6 +13,17 @@ Input.mousedown = function(event) {
 }
 goog.events.listen(document, goog.events.EventType.MOUSEDOWN, Input.mousedown);
 
+//WASD
+Input.keydown = function(event) {
+  switch (event.event_.which) {
+    case 83: x -= 5px
+    break;
+  }
+
+  return true;
+}
+goog.events.listen(document, goog.events.EventType.KEYDOWN, Input.keydown);
+
 // Drag
 Input.drag = function(event) {
   // Will be needed for inventory item re-arranging

@@ -31,6 +31,7 @@ var Client = (function() {
       puppet: new Actor
     }
   }
+  
   // Public methods
   Client.prototype = {
     
