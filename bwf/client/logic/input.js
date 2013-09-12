@@ -2,7 +2,7 @@ goog.provide('Input');
 require('lime.animation.MoveBy');
 
 // Mousedown
-Input.mousedown = function(event) {
+goog.events.listen(document, goog.events.EventType.MOUSEDOWN, function(event) {
   switch (event.event_.which) {
     case 1: // Left-click
       break
@@ -11,11 +11,10 @@ Input.mousedown = function(event) {
   }
   
   return true
-}
-goog.events.listen(document, goog.events.EventType.MOUSEDOWN, Input.mousedown);
+});
 
 //WASD down
-Input.keydown = function(event) {
+goog.events.listen(document, goog.events.EventType.KEYDOWN, function(event) {
   var puppet = client.actors.puppet
   switch (event.event_.which) {
     case 68:
@@ -33,61 +32,55 @@ Input.keydown = function(event) {
   }
 
   return true
-}
-goog.events.listen(document, goog.events.EventType.KEYDOWN, Input.keydown);
+});
 
 //WASD up
-Input.keyup = function(event) {
+goog.events.listen(document, goog.events.EventType.KEYUP, function(event) {
   var puppet = client.actors.puppet
   switch (event.event_.which) {
     case 68:
-      puppet.actions.splice(puppet.actions.indexOf('moveRight'))
+      puppet.actions.remove('moveRight')
       break
     case 83:
-      puppet.actions.splice(puppet.actions.indexOf('moveDown'))
+      puppet.actions.remove('moveDown')
       break
     case 65:
-      puppet.actions.splice(puppet.actions.indexOf('moveLeft'))
+      puppet.actions.remove('moveLeft')
       break
     case 87:
-      puppet.actions.splice(puppet.actions.indexOf('moveUp'))
+      puppet.actions.remove('moveUp')
       break
   }
 
   return true
-}
-goog.events.listen(document, goog.events.EventType.KEYUP, Input.keyup);
+});
 
 // Drag
-Input.drag = function(event) {
+goog.events.listen(document, goog.events.EventType.DRAG, function(event) {
   // Will be needed for inventory item re-arranging
   return true
-}
-goog.events.listen(document, goog.events.EventType.DRAG, Input.drag);
+});
 
 // Mouse-move
-Input.mousemove = function(event) {
+goog.events.listen(document, goog.events.EventType.MOUSEMOVE, function(event) {
   // Update the game's knowledge of the mouse cursor
   return client.mouse = {
     x: event.clientX,
     y: event.clientY
   }
-}
-goog.events.listen(document, goog.events.EventType.MOUSEMOVE, Input.mousemove);
+});
 
 // Right-click
-Input.contextmenu = function(event) {
+goog.events.listen(document, goog.events.EventType.CONTEXTMENU, function(event) {
   event.preventDefault(); // Kill the context menu
   return false
-}
-goog.events.listen(document, goog.events.EventType.CONTEXTMENU, Input.contextmenu);
+});
 
 // Text selection
-Input.selectstart = function(event) {
+goog.events.listen(document, goog.events.EventType.SELECTSTART, function(event) {
   event.preventDefault(); // Kill the i-beam cursor
   return false
-}
-goog.events.listen(document, goog.events.EventType.SELECTSTART, Input.selectstart);
+});
 
 // The loop
 lime.scheduleManager.schedule(function(){ 

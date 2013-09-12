@@ -44,10 +44,7 @@ module.exports = function(grunt) {
   grunt.registerTask('update', 'Updates Google Closure\'s deps.js file.', function() {
     grunt.util.spawn({
       cmd: 'python',
-      args: ['./bin/lime.py', 'update'],
-      opts: {
-        stdio: 'inherit'
-      }
+      args: ['./bin/lime.py', 'update']
     });
   });
 

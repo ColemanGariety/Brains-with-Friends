@@ -70,6 +70,23 @@ var Class = (function () {
   return Class;
 })();
 
+// Arrays
+Array.prototype.remove = function() {
+  var L, a, ax, what;
+
+  what = void 0;
+  a = arguments;
+  L = a.length;
+  ax = void 0;
+  while (L && this.length) {
+    what = a[--L];
+    while ((ax = this.indexOf(what)) !== -1) {
+      this.splice(ax, 1);
+    }
+  }
+  return this;
+};
+
 // Doubly-linked-lists
 var Dll = new Class({
   _head: null,
@@ -79,84 +96,80 @@ var Dll = new Class({
   // constructor: Dll, // Restores the constructor, but breaks our class implementation
   
   add: function (data) {
-        var node = { 
-                data: data, 
-                next: null,
-                prev: null
-            };
-        if (this._length == 0) {
-            this._head = node;
-            this._tail = node;
-        } else {
-            this._tail.next = node;
-            node.prev = this._tail;
-            this._tail = node;
-        }
-        this._length++;
-    
-    },
-    
-    get: function(index) {
-        if (index > -1 && index < this._length){
-            var current = this._head,
-                i = 0;
-            while(i++ < index){
-                current = current.next;            
-            }
-            return current.data;
-        } else {
-            return null;
-        }
-    },
-    
-    remove: function(index) {
-        if (index > -1 && index < this._length){
-            var current = this._head,
-                i = 0;
-            if (index === 0){
-                this._head = current.next;
-                if (!this._head){
-                    this._tail = null;
-                } else {
-                    this._head.prev = null;
-                }
-            } else if (index === this._length -1){
-                current = this._tail;
-                this._tail = current.prev;
-                this._tail.next = null;
-            } else {
-                while(i++ < index){
-                    current = current.next;            
-                }
-                current.prev.next = current.next;
-            }
-            this._length--;
-            return current.data;            
-        
-        } else {
-            return null;
-        }
-               
-    
-    },
-    
-    size: function() {
-        return this._length;
-    },
-    
-    toArray: function() {
-        var result = [],
-            current = this._head;
-        
-        while(current){
-            result.push(current.data);
-            current = current.next;
-        }
-        
-        return result;
-    },
-    
-    toString: function() {
-        return this.toArray().toString();
+    var node = { 
+            data: data, 
+            next: null,
+            prev: null
+        };
+    if (this._length == 0) {
+        this._head = node;
+        this._tail = node;
+    } else {
+        this._tail.next = node;
+        node.prev = this._tail;
+        this._tail = node;
     }
+    this._length++;
+  },
+    
+  get: function(index) {
+    if (index > -1 && index < this._length){
+        var current = this._head,
+            i = 0;
+        while(i++ < index){
+            current = current.next;            
+        }
+        return current.data;
+    } else {
+        return null;
+    }
+  },
+  
+  remove: function(index) {
+    if (index > -1 && index < this._length){
+      var current = this._head,
+          i = 0;
+      if (index === 0){
+          this._head = current.next;
+          if (!this._head){
+              this._tail = null;
+          } else {
+              this._head.prev = null;
+          }
+      } else if (index === this._length -1){
+          current = this._tail;
+          this._tail = current.prev;
+          this._tail.next = null;
+      } else {
+          while(i++ < index){
+              current = current.next;            
+          }
+          current.prev.next = current.next;
+      }
+      this._length--;
+      return current.data;            
+    } else {
+      return null;
+    }
+  },
+  
+  size: function() {
+    return this._length;
+  },
+  
+  toArray: function() {
+    var result = [],
+        current = this._head;
+    
+    while(current){
+        result.push(current.data);
+        current = current.next;
+    }
+    
+    return result;
+  },
+  
+  toString: function() {
+    return this.toArray().toString();
+  }
 });
