@@ -14,29 +14,49 @@ Input.mousedown = function(event) {
 }
 goog.events.listen(document, goog.events.EventType.MOUSEDOWN, Input.mousedown);
 
-//WASD
+//WASD down
 Input.keydown = function(event) {
   var puppet = client.actors.puppet
   switch (event.event_.which) {
     case 68:
-      puppet.x += 10
+      if (puppet.actions.indexOf('moveRight') == -1) puppet.actions.push('moveRight')
       break
     case 83:
-      puppet.y += 10
+      if (puppet.actions.indexOf('moveDown') == -1) puppet.actions.push('moveDown')
       break
     case 65:
-      puppet.x -= 10
+      if (puppet.actions.indexOf('moveLeft') == -1) puppet.actions.push('moveLeft')
       break
     case 87:
-      puppet.y -= 10
+      if (puppet.actions.indexOf('moveUp') == -1) puppet.actions.push('moveUp')
       break
   }
-  
-  puppet.move()
 
   return true
 }
 goog.events.listen(document, goog.events.EventType.KEYDOWN, Input.keydown);
+
+//WASD up
+Input.keyup = function(event) {
+  var puppet = client.actors.puppet
+  switch (event.event_.which) {
+    case 68:
+      puppet.actions.splice(puppet.actions.indexOf('moveRight'))
+      break
+    case 83:
+      puppet.actions.splice(puppet.actions.indexOf('moveDown'))
+      break
+    case 65:
+      puppet.actions.splice(puppet.actions.indexOf('moveLeft'))
+      break
+    case 87:
+      puppet.actions.splice(puppet.actions.indexOf('moveUp'))
+      break
+  }
+
+  return true
+}
+goog.events.listen(document, goog.events.EventType.KEYUP, Input.keyup);
 
 // Drag
 Input.drag = function(event) {
@@ -68,3 +88,25 @@ Input.selectstart = function(event) {
   return false
 }
 goog.events.listen(document, goog.events.EventType.SELECTSTART, Input.selectstart);
+
+// The loop
+lime.scheduleManager.schedule(function(){ 
+  var puppet = client.actors.puppet,
+      i = puppet.actions.length
+  while (i--) {
+    switch (puppet.actions[i]) {
+      case 'moveRight':
+        puppet.legs.setPosition(puppet.x += 1, puppet.y)
+        break
+      case 'moveDown':
+        puppet.legs.setPosition(puppet.x, puppet.y += 1)
+        break
+      case 'moveLeft':
+        puppet.legs.setPosition(puppet.x -= 1, puppet.y)
+        break
+      case 'moveUp':
+        puppet.legs.setPosition(puppet.x, puppet.y -= 1)
+        break
+    }
+  }
+},this); 

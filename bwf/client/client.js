@@ -23,7 +23,7 @@ var Client = function() {
     
     require('Map');
     this.maps = {
-      desert: new Map
+      // desert: new Map
     }
 
     require('Actor');
