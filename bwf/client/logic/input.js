@@ -91,20 +91,38 @@ goog.events.listen(document, goog.events.EventType.SELECTSTART, function(event) 
 // The loop
 lime.scheduleManager.schedule(function(){ 
   var puppet = client.actors.puppet,
+      desert = client.maps.desert
       i = puppet.actions.length
+  
   while (i--) {
     switch (puppet.actions[i]) {
       case 'moveRight':
-        puppet.layer.setPosition(puppet.x += 5, puppet.y)
+        if (puppet.x >= window.innerWidth / 2) {
+          desert.layer.setPosition(client.maps.desert.x -= 5, client.maps.desert.y)
+        } else {
+          puppet.layer.setPosition(puppet.x += 5, puppet.y)
+        }
         break
       case 'moveDown':
-        puppet.layer.setPosition(puppet.x, puppet.y += 5)
+        if (puppet.y >= window.innerHeight / 2) {
+          desert.layer.setPosition(client.maps.desert.x, client.maps.desert.y -= 5)
+        } else {
+          puppet.layer.setPosition(puppet.x, puppet.y += 5)
+        }
         break
       case 'moveLeft':
-        puppet.layer.setPosition(puppet.x -= 5, puppet.y)
+        if (puppet.x <= window.innerWidth / 2) {
+          desert.layer.setPosition(client.maps.desert.x += 5, client.maps.desert.y)
+        } else {
+          puppet.layer.setPosition(puppet.x -= 5, puppet.y)
+        }
         break
       case 'moveUp':
-        puppet.layer.setPosition(puppet.x, puppet.y -= 5)
+        if (puppet.y <= window.innerHeight / 2) {
+          desert.layer.setPosition(client.maps.desert.x, client.maps.desert.y += 5)
+        } else {
+          puppet.layer.setPosition(puppet.x, puppet.y -= 5)
+        }
         break
     }
   }
