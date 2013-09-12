@@ -96,16 +96,16 @@ lime.scheduleManager.schedule(function(){
   while (i--) {
     switch (puppet.actions[i]) {
       case 'moveRight':
-        puppet.layer.setPosition(puppet.x += 1, puppet.y)
+        puppet.layer.setPosition(puppet.x += 5, puppet.y)
         break
       case 'moveDown':
-        puppet.layer.setPosition(puppet.x, puppet.y += 1)
+        puppet.layer.setPosition(puppet.x, puppet.y += 5)
         break
       case 'moveLeft':
-        puppet.layer.setPosition(puppet.x -= 1, puppet.y)
+        puppet.layer.setPosition(puppet.x -= 5, puppet.y)
         break
       case 'moveUp':
-        puppet.layer.setPosition(puppet.x, puppet.y -= 1)
+        puppet.layer.setPosition(puppet.x, puppet.y -= 5)
         break
     }
   }

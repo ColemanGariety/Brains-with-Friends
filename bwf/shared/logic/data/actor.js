@@ -10,7 +10,8 @@ var Actor = new Class({
     this.actions = []
     
     // Whatever
-    this.legs.setSize(80,72).setFill('/assets/display/actors/legs/foo.png').setPosition(this.x, this.y)
+    this.layer.setPosition(this.x, this.y)
+    this.legs.setSize(80,72).setFill('/assets/display/actors/legs/foo.png')
     
     // Add legs to screen
     client.scene.appendChild(this.layer)
