@@ -17,13 +17,13 @@ var Client = function() {
     client = instance = this; // Keep a closured reference to the instance
     
     require('Input');
-    this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight); // Setup the rendering engine
+    this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight) // Setup the rendering engine
     this.scene = new lime.Scene();
     this.director.replaceScene(this.scene);
     
     require('Map');
     this.maps = {
-      // desert: new Map
+      desert: new Map
     }
 
     require('Actor');

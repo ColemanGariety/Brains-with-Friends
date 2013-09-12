@@ -9,14 +9,12 @@ var Actor = new Class({
     this.legs = new lime.Sprite()
     this.actions = []
     
-    this.legs.setSize(80,72).setFill('/assets/display/actors/legs/foo.png')
+    // Whatever
+    this.legs.setSize(80,72).setFill('/assets/display/actors/legs/foo.png').setPosition(this.x, this.y)
     
     // Add legs to screen
     client.scene.appendChild(this.layer)
     this.layer.appendChild(this.legs)
-    
-    // Move it
-    this.move()
   },
   
   move: function() {
