@@ -7,7 +7,13 @@ var Map = new Class({ // Defines map-rendering logic
     this.layer = new lime.Layer()
     
     var tmx = new lime.parser.TMX('assets/display/maps/testmap2.tmx')
-
+    
+    this.width = tmx.width * tmx.tilewidth
+    this.height = tmx.height * tmx.tileheight
+    
+    console.log(tmx)
+    
+    this.layer.setPosition(this.x, this.y)
     client.scene.appendChild(this.layer);
 
     for (var j = 0; j < tmx.layers.length; j++) {
