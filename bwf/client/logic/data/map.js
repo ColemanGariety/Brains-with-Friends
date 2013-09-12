@@ -11,9 +11,6 @@ var Map = new Class({ // Defines map-rendering logic
     this.width = tmx.width * tmx.tilewidth
     this.height = tmx.height * tmx.tileheight
     
-    console.log(tmx)
-    
-    this.layer.setPosition(this.x, this.y)
     client.scene.appendChild(this.layer);
 
     for (var j = 0; j < tmx.layers.length; j++) {
