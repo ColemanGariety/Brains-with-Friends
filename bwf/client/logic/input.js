@@ -64,10 +64,16 @@ goog.events.listen(document, goog.events.EventType.DRAG, function(event) {
 // Mouse-move
 goog.events.listen(document, goog.events.EventType.MOUSEMOVE, function(event) {
   // Update the game's knowledge of the mouse cursor
-  return client.mouse = {
+  client.mouse = {
     x: event.clientX,
     y: event.clientY
   }
+  
+  var direction = Math.atan2(client.mouse.y - client.actors.puppet.y, client.mouse.x - client.actors.puppet.x)
+  
+  client.actors.puppet.layer.setRotation(-(direction * (180 / Math.PI) + 90))
+  
+  return client.mouse
 });
 
 // Right-click
