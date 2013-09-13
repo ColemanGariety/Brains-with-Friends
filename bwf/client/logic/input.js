@@ -69,9 +69,7 @@ goog.events.listen(document, goog.events.EventType.MOUSEMOVE, function(event) {
     y: event.clientY
   }
   
-  var direction = Math.atan2(client.mouse.y - client.actors.puppet.y, client.mouse.x - client.actors.puppet.x)
-  
-  client.actors.puppet.layer.setRotation(-(direction * (180 / Math.PI) + 90))
+  client.actors.puppet.orient()
   
   return client.mouse
 });
