@@ -23,7 +23,7 @@ var Actor = new Class({
         switch (puppet.actions[i]) {
           case 'moveRight':
             this.orient()
-            if (puppet.x >= window.innerWidth / 2 && desert.x > window.innerWidth - desert.width) {
+            if (puppet.x == window.innerWidth / 2 && desert.x > window.innerWidth - desert.width) {
               desert.layer.setPosition(desert.x -= 5, desert.y)
             } else {
               puppet.layer.setPosition(puppet.x += 5, puppet.y)
@@ -39,7 +39,7 @@ var Actor = new Class({
             break
           case 'moveLeft':
             this.orient()
-            if (puppet.x <= window.innerWidth / 2 && desert.x < 0) {
+            if (puppet.x == window.innerWidth / 2 && desert.x < 0) {
               desert.layer.setPosition(desert.x += 5, desert.y)
             } else {
               puppet.layer.setPosition(puppet.x -= 5, puppet.y)
@@ -47,7 +47,7 @@ var Actor = new Class({
             break
           case 'moveUp':
             this.orient()
-            if (puppet.y <= window.innerHeight / 2 && desert.y < 0) {
+            if (puppet.y >= window.innerHeight / 2 && desert.y < 0) {
               desert.layer.setPosition(desert.x, desert.y += 5)
             } else {
               puppet.layer.setPosition(puppet.x, puppet.y -= 5)
