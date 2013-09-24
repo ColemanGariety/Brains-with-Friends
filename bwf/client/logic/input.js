@@ -1,5 +1,4 @@
 goog.provide('Input');
-require('lime.animation.MoveBy');
 
 // Mousedown
 goog.events.listen(document, goog.events.EventType.MOUSEDOWN, function(event) {

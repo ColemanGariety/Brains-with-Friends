@@ -15,6 +15,7 @@ var Client = function() {
 
   function Client() { // Constructor
     client = instance = this; // Keep a closured reference to the instance
+    this.renderPadding = 64
     this.mouse = {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2
