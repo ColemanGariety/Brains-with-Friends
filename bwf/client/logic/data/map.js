@@ -22,7 +22,7 @@ var Map = new Class({ // Defines map-rendering logic
     _.each(tmx.objects, function(object) {
       switch (object.name) {
         case 'background':
-          _this.background.appendChild(new lime.Sprite().setFill(new lime.fill.Image(tmx.filename.substring(0, tmx.filename.lastIndexOf("/") + 1) + object.properties.image).setSize(32, 32)).setSize(object.width * 2, object.height * 2))
+          _this.background.appendChild(new lime.Sprite().setFill(new lime.fill.Image(tmx.filename.trimLastPathSegment() + object.properties.image).setSize(32, 32)).setSize(object.width * 2, object.height * 2))
           break
       }
     })

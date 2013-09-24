@@ -1,5 +1,10 @@
 goog.provide('utilities.shared');
 
+// Strings
+String.prototype.trimLastPathSegment = function() {
+  return this.substring(0, this.lastIndexOf("/") + 1)
+}
+
 // Classes
 var Class = (function () {
   function Class(definition) {
