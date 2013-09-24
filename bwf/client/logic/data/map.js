@@ -25,19 +25,21 @@ var Map = new Class({ // Defines map-rendering logic
   },
   
   draw: _.debounce(function() {
-    var _this = this
+    var _this = this,
+        _thisX = _this.x,
+        _thisY = _this.y
     
     _.each(this.layer.children_, function(node) {
-      var nodeOffset = {
-        x: (node.position_.x + _this.x + node.size_.width / 2),
-        y: (node.position_.y + _this.y + node.size_.height / 2)
-      }
+      var nodeOffsetX = (node.position_.x + _thisX + node.size_.width / 2)
+        , nodeOffsetY = (node.position_.y + _thisY + node.size_.height / 2)
       
-      if (nodeOffset.x <= window.innerWidth && nodeOffset.x > 0 && nodeOffset.y <= window.innerHeight && nodeOffset.y > 0) {
-        node.setHidden(false)
-      } else {
+      console.log(node.hidden_)
+      
+      if (nodeOffsetX <= window.innerWidth + 64 && nodeOffsetX > -64 && nodeOffsetY <= window.innerHeight + 64 && nodeOffsetY > -64) {
+        if (node.hidden_ == true) node.setHidden(false)
+      } else if (node.hidden_ == undefined || node.hidden_ == false) {
         node.setHidden(true)
       }
     })
-  }, 50, true)
+  }, 50, { maxWait: 50 })
 });
