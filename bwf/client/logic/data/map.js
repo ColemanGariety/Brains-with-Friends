@@ -6,7 +6,7 @@ var Map = new Class({ // Defines map-rendering logic
     this.y = 0
     this.layer = new lime.Layer()
     
-    var tmx = new lime.parser.TMX('assets/display/maps/testmap2.tmx')
+    var tmx = new lime.parser.TMX('assets/display/maps/desert.tmx')
     
     this.width = tmx.width * tmx.tilewidth
     this.height = tmx.height * tmx.tileheight
