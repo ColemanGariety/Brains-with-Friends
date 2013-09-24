@@ -19,38 +19,44 @@ var Actor = new Class({
           desert = client.maps.desert
           i = puppet.actions.length
       
+      desert.draw = _.throttle(desert.draw, 500)
+      
       while (i--) {
         switch (puppet.actions[i]) {
           case 'moveRight':
-            this.orient()
             if (puppet.x == window.innerWidth / 2 && desert.x > window.innerWidth - desert.width) {
               desert.layer.setPosition(desert.x -= 5, desert.y)
+              desert.draw()
             } else {
               puppet.layer.setPosition(puppet.x += 5, puppet.y)
+              this.orient()
             }
             break
           case 'moveDown':
-            this.orient()
             if (puppet.y >= window.innerHeight / 2 && desert.y > window.innerHeight - desert.height) {
               desert.layer.setPosition(desert.x, desert.y -= 5)
+              desert.draw()
             } else {
               puppet.layer.setPosition(puppet.x, puppet.y += 5)
+              this.orient()
             }
             break
           case 'moveLeft':
-            this.orient()
             if (puppet.x == window.innerWidth / 2 && desert.x < 0) {
               desert.layer.setPosition(desert.x += 5, desert.y)
+              desert.draw()
             } else {
               puppet.layer.setPosition(puppet.x -= 5, puppet.y)
+              this.orient()
             }
             break
           case 'moveUp':
-            this.orient()
             if (puppet.y >= window.innerHeight / 2 && desert.y < 0) {
               desert.layer.setPosition(desert.x, desert.y += 5)
+              desert.draw()
             } else {
               puppet.layer.setPosition(puppet.x, puppet.y -= 5)
+              this.orient()
             }
             break
         }

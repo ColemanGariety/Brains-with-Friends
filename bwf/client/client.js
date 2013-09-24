@@ -15,6 +15,10 @@ var Client = function() {
 
   function Client() { // Constructor
     client = instance = this; // Keep a closured reference to the instance
+    this.mouse = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2
+    }
     
     require('Input');
     this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight) // Setup the rendering engine
