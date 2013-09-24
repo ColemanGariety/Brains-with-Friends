@@ -59,15 +59,11 @@ var Actor = new Class({
             break
         }
       }
-    },this);
+    }, this);
     
     // Add torso to screen
     client.scene.appendChild(this.layer)
     this.layer.appendChild(this.torso)
-  },
-  
-  move: function() {
-    
   },
   
   orient: function() {

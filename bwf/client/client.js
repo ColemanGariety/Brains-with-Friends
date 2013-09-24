@@ -15,22 +15,28 @@ var Client = function() {
 
   function Client() { // Constructor
     client = instance = this; // Keep a closured reference to the instance
-    this.renderPadding = 64
+    
+    require('Input');
+    
+    this.renderPadding = 96
+    this.renderDebounce = 250
     this.mouse = {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2
     }
     
-    require('Input');
+    // Initialize Lime
     this.director = new lime.Director(document.body, window.innerWidth, window.innerHeight) // Setup the rendering engine
     this.scene = new lime.Scene();
     this.director.replaceScene(this.scene);
     
+    // Drop in the first map
     require('Map');
     this.maps = {
       desert: new Map
     }
 
+    // Drop in the first actor
     require('Actor');
     this.actors = {
       puppet: new Actor
