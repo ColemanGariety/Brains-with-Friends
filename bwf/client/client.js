@@ -18,8 +18,8 @@ var Client = function() {
     
     require('Input');
     
-    this.renderPadding = 96
-    this.renderDebounce = 250
+    this.renderPadding = 64
+    this.renderDebounce = 150
     this.mouse = {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2

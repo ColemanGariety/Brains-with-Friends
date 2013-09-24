@@ -11,7 +11,7 @@ var Actor = new Class({
     
     // Set properties
     this.layer.setPosition(this.x, this.y)
-    this.torso.setSize(100, 100).setFill('/assets/display/actors/torsos/torso.png')
+    this.torso.setSize(71, 71).setFill('/assets/display/actors/torsos/torso.png')
     
     // Handle movement
     lime.scheduleManager.schedule(function(){ 
