@@ -40,7 +40,7 @@ var Actor = new Class({
             }
             break
           case 'moveLeft':
-            if (puppet.x >= window.innerWidth / 2 && desert.x < 0) {
+            if (puppet.x <= (window.innerWidth / 2) + 5 && desert.x < 0) {
               desert.layer.setPosition(desert.x += 5, desert.y)
               desert.draw()
             } else {
@@ -49,7 +49,7 @@ var Actor = new Class({
             }
             break
           case 'moveUp':
-            if (puppet.y >= window.innerHeight / 2 && desert.y < 0) {
+            if (puppet.y <= (window.innerHeight / 2) + 5 && desert.y < 0) {
               desert.layer.setPosition(desert.x, desert.y += 5)
               desert.draw()
             } else {
