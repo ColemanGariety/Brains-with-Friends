@@ -18,6 +18,7 @@ var Map = new Class({ // Defines map-rendering logic
         tile = tmx.layers[j].tiles[i];
         sprite = new lime.Sprite().setPosition(tile.px, tile.py);
         sprite.setFill(tile.tile.frame);
+        //rite.setHidden(true);
         this.layer.appendChild(sprite);
       }
     }
