@@ -19,8 +19,6 @@ var Actor = new Class({
           desert = client.maps.desert
           i = puppet.actions.length
       
-      desert.draw = _.throttle(desert.draw, 500)
-      
       while (i--) {
         switch (puppet.actions[i]) {
           case 'moveRight':

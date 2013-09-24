@@ -24,10 +24,20 @@ var Map = new Class({ // Defines map-rendering logic
     }
   },
   
-  draw: function() {
+  draw: _.debounce(function() {
+    var _this = this
+    
     _.each(this.layer.children_, function(node) {
-      console.log(node.positionDrawn_.x)
-      if (node.positionDrawn_.x <= window.innerWidth && node.positionDrawn_.x > 0 && node.positionDrawn_.y <= window.innerHeight && node.positionDrawn_.y > 0) node.setHidden(false)
+      var nodeOffset = {
+        x: (node.position_.x + _this.x + node.size_.width / 2),
+        y: (node.position_.y + _this.y + node.size_.height / 2)
+      }
+      
+      if (nodeOffset.x <= window.innerWidth && nodeOffset.x > 0 && nodeOffset.y <= window.innerHeight && nodeOffset.y > 0) {
+        node.setHidden(false)
+      } else {
+        node.setHidden(true)
+      }
     })
-  }
+  }, 50, true)
 });
