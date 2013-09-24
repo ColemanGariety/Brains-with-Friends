@@ -22,7 +22,7 @@ var Actor = new Class({
       while (i--) {
         switch (puppet.actions[i]) {
           case 'moveRight':
-            if (puppet.x == window.innerWidth / 2 && desert.x > window.innerWidth - desert.width) {
+            if (puppet.x >= window.innerWidth / 2 && desert.x > window.innerWidth - desert.width) {
               desert.layer.setPosition(desert.x -= 5, desert.y)
               desert.draw()
             } else {
@@ -40,7 +40,7 @@ var Actor = new Class({
             }
             break
           case 'moveLeft':
-            if (puppet.x == window.innerWidth / 2 && desert.x < 0) {
+            if (puppet.x >= window.innerWidth / 2 && desert.x < 0) {
               desert.layer.setPosition(desert.x += 5, desert.y)
               desert.draw()
             } else {

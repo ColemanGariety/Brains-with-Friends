@@ -29,17 +29,20 @@ var Map = new Class({ // Defines map-rendering logic
         _thisX = _this.x,
         _thisY = _this.y
     
-    _.each(this.layer.children_, function(node) {
-      var nodeOffsetX = (node.position_.x + _thisX + node.size_.width / 2)
+    var i = this.layer.children_.length
+    while (i--) {
+      var node = this.layer.children_[i]
+        , nodeOffsetX = (node.position_.x + _thisX + node.size_.width / 2)
         , nodeOffsetY = (node.position_.y + _thisY + node.size_.height / 2)
-      
-      console.log(node.hidden_)
       
       if (nodeOffsetX <= window.innerWidth + 64 && nodeOffsetX > -64 && nodeOffsetY <= window.innerHeight + 64 && nodeOffsetY > -64) {
         if (node.hidden_ == true) node.setHidden(false)
       } else if (node.hidden_ == undefined || node.hidden_ == false) {
         node.setHidden(true)
       }
+    };
+    
+    _.each(this.layer.children_, function(node) {
     })
   }, 50, { maxWait: 50 })
 });
