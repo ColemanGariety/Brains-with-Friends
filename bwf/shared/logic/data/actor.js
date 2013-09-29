@@ -67,11 +67,11 @@ var Actor = new Class({
   },
 
   realX: function() {
-    return -(this.x - client.maps.desert.x)
+    return -this.x - client.maps.desert.x
   },
   
   realY: function() {
-    return -(this.y - client.maps.desert.y)
+    return -this.y - client.maps.desert.y
   },
   
   orient: function(target) {
