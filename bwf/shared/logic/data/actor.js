@@ -27,7 +27,7 @@ var Actor = new Class({
               desert.draw()
             } else {
               puppet.layer.setPosition(puppet.x += 5, puppet.y)
-              this.orient()
+              this.orient(client.mouse)
             }
             break
           case 'moveDown':
@@ -36,7 +36,7 @@ var Actor = new Class({
               desert.draw()
             } else {
               puppet.layer.setPosition(puppet.x, puppet.y += 5)
-              this.orient()
+              this.orient(client.mouse)
             }
             break
           case 'moveLeft':
@@ -45,7 +45,7 @@ var Actor = new Class({
               desert.draw()
             } else {
               puppet.layer.setPosition(puppet.x -= 5, puppet.y)
-              this.orient()
+              this.orient(client.mouse)
             }
             break
           case 'moveUp':
@@ -54,7 +54,7 @@ var Actor = new Class({
               desert.draw()
             } else {
               puppet.layer.setPosition(puppet.x, puppet.y -= 5)
-              this.orient()
+              this.orient(client.mouse)
             }
             break
         }
@@ -66,9 +66,9 @@ var Actor = new Class({
     this.layer.appendChild(this.torso)
   },
   
-  orient: function() {
+  orient: function(target) {
     // Orient the player
-    var direction = Math.atan2(client.mouse.y - this.y, client.mouse.x - this.x)
+    var direction = Math.atan2(target.y - this.y, target.x - this.x)
     this.layer.setRotation(-(direction * (180 / Math.PI) + 90))
   }
 });

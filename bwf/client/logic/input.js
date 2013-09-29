@@ -68,7 +68,7 @@ goog.events.listen(document, goog.events.EventType.MOUSEMOVE, function(event) {
     y: event.clientY
   }
   
-  client.actors.puppet.orient()
+  client.actors.puppet.orient(client.mouse)
   
   return client.mouse
 });
