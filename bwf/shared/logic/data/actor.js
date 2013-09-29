@@ -65,10 +65,17 @@ var Actor = new Class({
     client.scene.appendChild(this.layer)
     this.layer.appendChild(this.torso)
   },
+
+  realX: function() {
+    return -(this.x - client.maps.desert.x)
+  },
+  
+  realY: function() {
+    return -(this.y - client.maps.desert.y)
+  },
   
   orient: function(target) {
-    // Orient the player
-    var direction = Math.atan2(target.y - this.y, target.x - this.x)
+    var direction = Math.atan2(target.y + this.realY(), target.x + this.realX(this))
     this.layer.setRotation(-(direction * (180 / Math.PI) + 90))
   }
 });
