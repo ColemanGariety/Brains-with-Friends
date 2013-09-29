@@ -40,7 +40,13 @@ var Client = function() {
     require('Actor');
     this.actors = {
       puppet: new Actor
-    } 
+    }
+     
+    require('Zombie');
+    this.zombies = {
+      zombie: new Zombie
+    }
+
   }
   
   // Public methods
