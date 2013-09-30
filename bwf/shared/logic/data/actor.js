@@ -67,15 +67,15 @@ var Actor = new Class({
   },
 
   realX: function() {
-    return -this.x - client.maps.desert.x
+    return -(-this.x - client.maps.desert.x)
   },
   
   realY: function() {
-    return -this.y - client.maps.desert.y
+    return -(-this.y - client.maps.desert.y)
   },
   
   orient: function(target) {
-    var direction = Math.atan2(target.y + this.realY(), target.x + this.realX(this))
-    this.layer.setRotation(-(direction * (180 / Math.PI) + 90))
+    var direction = Math.atan2(target.y - this.realY(), target.x - this.realX(this)) * (180 / Math.PI) + 90
+    this.layer.setRotation(-direction)
   }
 });
