@@ -2,11 +2,14 @@
 goog.provide('client');
 
 // Modules
-goog.require('utilities.client');
-goog.require('utilities.shared');
-goog.require('lime.Director');
-goog.require('lime.parser.TMX');
-goog.require('lime.Layer');
+require('utilities.client');
+require('utilities.shared');
+require('lime.Director');
+require('lime.parser.TMX');
+require('lime.Layer');
+require('Input')
+require('Map')
+require('Actor')
 
 
 // Singleton class for the client

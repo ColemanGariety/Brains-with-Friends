@@ -1,5 +1,5 @@
-goog.provide('Zombie');
-goog.require('Actor');
+goog.provide('Zombie')
+goog.require('Actor')
 
 var Zombie = new Class({
   extend: Actor,
@@ -11,7 +11,6 @@ var Zombie = new Class({
     this.layer = new lime.Layer()
     this.torso = new lime.Sprite()
 
-
     // Set properties
     this.layer.setPosition(400, 400)
     this.torso.setSize(71, 71).setFill('/assets/display/npc/Zombie.png')
@@ -19,8 +18,9 @@ var Zombie = new Class({
     //add NPC on screen
     client.maps.desert.layer.appendChild(this.layer)
     this.layer.appendChild(this.torso)
-    this.ai();
+    this.ai()
   },
+  
   ai: function() {
     var _this = this
     lime.scheduleManager.schedule(function(){
@@ -28,12 +28,11 @@ var Zombie = new Class({
         py = -client.maps.desert.y + client.actors.puppet.y
         //ex = this.x
         //ey = this.y
-        var direction = Math.atan2(px - _this.x, py - _this.y);
-        var x = Math.sin(direction) /2;
-        var y = Math.cos(direction) /2;
-        _this.layer.setPosition(_this.x += x, _this.y += y);
-        _this.orient(client.actors.puppet);
+        var direction = Math.atan2(px - _this.x, py - _this.y)
+        var x = Math.sin(direction) /2
+        var y = Math.cos(direction) /2
+        _this.layer.setPosition(_this.x += x, _this.y += y)
+        _this.orient(client.actors.puppet)
     })
   }
-
-});
+})

@@ -75,7 +75,11 @@ var Actor = new Class({
   },
   
   orient: function(target) {
-    var direction = Math.atan2(target.y - this.realY(), target.x - this.realX(this)) * (180 / Math.PI) + 90
+    // FIX: this needs to be updated to support more classes than Actor
+    // Currently, these checks are simply to determine wether to orient based on the map or the window
+    var x = target instanceof Actor ? this.realX() : this.x
+      , y = target instanceof Actor ? this.realY() : this.y
+      , direction = Math.atan2(target.y - y, target.x - x) * (180 / Math.PI) + 90
     this.layer.setRotation(-direction)
   }
 });
