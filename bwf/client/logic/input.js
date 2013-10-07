@@ -14,7 +14,7 @@ goog.events.listen(document, goog.events.EventType.MOUSEDOWN, function(event) {
 
 //WASD down
 goog.events.listen(document, goog.events.EventType.KEYDOWN, function(event) {
-  var puppet = client.actors.puppet
+  var puppet = client.actors[document.getElementsByTagName('meta').item(property = 'user_id').getAttribute('content')]
   switch (event.event_.which) {
     case 68:
       if (puppet.actions.indexOf('moveRight') == -1) puppet.actions.push('moveRight')
@@ -35,7 +35,7 @@ goog.events.listen(document, goog.events.EventType.KEYDOWN, function(event) {
 
 //WASD up
 goog.events.listen(document, goog.events.EventType.KEYUP, function(event) {
-  var puppet = client.actors.puppet
+  var puppet = client.actors[document.getElementsByTagName('meta').item(property = 'user_id').getAttribute('content')]
   switch (event.event_.which) {
     case 68:
       puppet.actions.remove('moveRight')
@@ -68,7 +68,7 @@ goog.events.listen(document, goog.events.EventType.MOUSEMOVE, function(event) {
     y: event.clientY
   }
   
-  client.actors.puppet.orient(client.mouse)
+  if (typeof client.actors[document.getElementsByTagName('meta').item(property = 'user_id').getAttribute('content')] !== 'undefined') client.actors[document.getElementsByTagName('meta').item(property = 'user_id').getAttribute('content')].orient(client.mouse)
   
   return client.mouse
 });

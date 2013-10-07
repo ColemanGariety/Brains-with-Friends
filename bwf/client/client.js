@@ -10,16 +10,15 @@ require('lime.Layer');
 require('Input')
 require('Map')
 require('Actor')
+require('Zombie')
 
 
 // Singleton class for the client
-var Client = function() {
+var Client = function (foo) {
   var instance; // Private instance
 
   function Client() { // Constructor
     client = instance = this; // Keep a closured reference to the instance
-    
-    require('Input');
     
     this.renderPadding = 64
     this.renderDebounce = 150
@@ -34,21 +33,25 @@ var Client = function() {
     this.director.replaceScene(this.scene);
     
     // Drop in the first map
-    require('Map');
     this.maps = {
       desert: new Map
     }
 
     // Drop in the first actor
-    require('Actor');
-    this.actors = {
-      puppet: new Actor
-    }
-     
-    require('Zombie');
-    this.zombies = {
-      zombie: new Zombie
-    }
+    this.actors = {}
+    
+    reqwest({ url:'/players', type: 'json' }, function (res) {
+      var players = res
+        , player
+      
+      for (player in players) {
+        client.actors[String(player)] = new Actor
+      }
+    })
+    
+    // this.zombies = {
+    //   zombie: new Zombie
+    // }
 
   }
   
@@ -57,7 +60,7 @@ var Client = function() {
     
   }
 
-  Client.getInstance = function() {
+  Client.getInstance = function () {
     if (typeof instance == "undefined") {
       return new this();
     }
@@ -71,6 +74,6 @@ var Client = function() {
 }()
 
 // Initialize the client when dependencies are loaded
-window.onload = function() {
+window.onload = function () {
    client = Client.getInstance();
 };

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>25DF4EE5-8056-4547-B19A-E84A6DEE2923</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Brains with Friends</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>17444056-82B4-48DE-B61B-7F673A864EA4</key>
+		<string>ssh://github.com/JacksonGariety/Brains-with-Friends.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>bwf/native/Brains with Friends/Brains with Friends.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>17444056-82B4-48DE-B61B-7F673A864EA4</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/JacksonGariety/Brains-with-Friends.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>17444056-82B4-48DE-B61B-7F673A864EA4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>17444056-82B4-48DE-B61B-7F673A864EA4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>brainswithfriends</string>
+		</dict>
+	</array>
+</dict>
+</plist>
