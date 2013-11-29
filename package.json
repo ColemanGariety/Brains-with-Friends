@@ -13,7 +13,8 @@
     "express": "~3.2.6",
     "socket.io": "~0.9.14",
     "nclosure": "~0.4.3",
-    "hbs": "~2.3.0"
+    "hbs": "~2.3.0",
+    "node-uuid": "~1.4.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
